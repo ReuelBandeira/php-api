@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Modules\Doctor\Controllers\DoctorController;
+use App\Modules\Patient\Controllers\PatientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +20,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// Route::get('/user', function (Request $request) {
-//     return ['message' => 'Esta rota existe!'];
-// });
+// Doctor Routes
+Route::apiResource('doctors', DoctorController::class);
+
+// Patient Routes
+Route::apiResource('patients', PatientController::class);
