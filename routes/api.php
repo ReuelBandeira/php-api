@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Modules\Doctor\Controllers\DoctorController;
 use App\Modules\Patient\Controllers\PatientController;
+use App\Modules\Diagnostic\Controllers\DiagnosticController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +26,5 @@ Route::apiResource('doctors', DoctorController::class);
 
 // Patient Routes
 Route::apiResource('patients', PatientController::class);
+
+Route::apiResource('diagnostics', DiagnosticController::class);
