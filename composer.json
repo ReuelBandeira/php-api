@@ -31,7 +31,8 @@
             "Database\\Seeders\\": "database/seeders/",
             "App\\Modules\\Doctor\\": "app/modules/doctor/",
             "App\\Modules\\Patient\\": "app/modules/patient/",
-            "App\\Modules\\Diagnostic\\": "app/modules/diagnostic/"
+            "App\\Modules\\Diagnostic\\": "app/modules/diagnostic/",
+            "App\\Modules\\Conduct\\": "app/modules/conduct/"
         }
     },
     "autoload-dev": {

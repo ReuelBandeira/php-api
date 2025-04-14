@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Modules\Doctor\Controllers\DoctorController;
 use App\Modules\Patient\Controllers\PatientController;
 use App\Modules\Diagnostic\Controllers\DiagnosticController;
+use App\Modules\Conduct\Controllers\ConductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,8 +24,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 // Doctor Routes
 Route::apiResource('doctors', DoctorController::class);
-
 // Patient Routes
 Route::apiResource('patients', PatientController::class);
 
 Route::apiResource('diagnostics', DiagnosticController::class);
+
+Route::apiResource('conducts', ConductController::class);
