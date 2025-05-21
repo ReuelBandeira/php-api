@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
         \App\Modules\Patient\Seeders\PatientSeeder::class,
         \App\Modules\Diagnostic\Seeders\DiagnosticSeeder::class,
         \App\Modules\Conduct\Seeders\ConductSeeder::class,
+        \App\Modules\Trauma\Seeders\TraumaSeeder::class,
         // No método run() do DatabaseSeeder.php adicione:
 
     ]);

@@ -6,6 +6,7 @@ use App\Modules\Doctor\Controllers\DoctorController;
 use App\Modules\Patient\Controllers\PatientController;
 use App\Modules\Diagnostic\Controllers\DiagnosticController;
 use App\Modules\Conduct\Controllers\ConductController;
+use App\Modules\Trauma\Controllers\TraumaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,3 +31,5 @@ Route::apiResource('patients', PatientController::class);
 Route::apiResource('diagnostics', DiagnosticController::class);
 
 Route::apiResource('conducts', ConductController::class);
+
+Route::apiResource('traumas', TraumaController::class);
