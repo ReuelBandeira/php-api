@@ -1,0 +1,30 @@
+# Dependências (mais importantes)
+/vendor
+/node_modules
+
+# Git e IDEs
+/.git
+/.github
+/.vscode
+/.idea
+
+# Logs e cache
+*.log
+/storage/logs/*
+/storage/framework/cache/*
+/storage/framework/sessions/*
+/storage/framework/views/*
+/bootstrap/cache/*
+
+# Configurações
+.env*
+*.key
+
+# Build e temporários
+/public/hot
+/public/build
+/public/storage
+/tests
+.phpunit*
+npm-debug.log
+yarn-error.log

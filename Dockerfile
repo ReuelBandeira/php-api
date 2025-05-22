@@ -1,5 +1,8 @@
 FROM php:8.2-fpm
 
+# Definir diretório de trabalho ANTES de copiar arquivos
+WORKDIR /var/www/html
+
 # Instalar dependências do sistema
 RUN apt-get update && apt-get install -y \
     git \
@@ -9,10 +12,9 @@ RUN apt-get update && apt-get install -y \
     libxml2-dev \
     zip \
     unzip \
-    libpq-dev
-
-# Limpar cache
-RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+    libpq-dev \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
 # Instalar extensões PHP
 RUN docker-php-ext-install pdo_pgsql mbstring exif pcntl bcmath gd
@@ -20,10 +22,7 @@ RUN docker-php-ext-install pdo_pgsql mbstring exif pcntl bcmath gd
 # Obter a versão mais recente do Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Definir diretório de trabalho
-WORKDIR /var/www/html
-
-# Copiar arquivos do composer
+# Copiar APENAS os arquivos necessários primeiro
 COPY composer.json composer.lock ./
 
 # Instalar dependências
@@ -32,19 +31,16 @@ RUN composer install --no-scripts --no-autoloader
 # Copiar o restante da aplicação
 COPY . .
 
+# Criar diretórios necessários com permissões corretas
+RUN mkdir -p storage/logs storage/framework/cache storage/framework/sessions storage/framework/views storage/app/public bootstrap/cache \
+    && chmod -R 755 storage bootstrap/cache \
+    && chown -R www-data:www-data storage bootstrap/cache
+
 # Gerar o autoloader otimizado
 RUN composer dump-autoload --optimize
 
-# Configurar permissões (usando www-data que é o usuário padrão para PHP-FPM)
-RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
-RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
-
-# Garantir que o diretório de storage existe e tem permissões corretas
-RUN mkdir -p /var/www/html/storage/logs /var/www/html/storage/framework/sessions /var/www/html/storage/framework/views /var/www/html/storage/framework/cache
-RUN chown -R www-data:www-data /var/www/html/storage
-
-# Expor porta 8000 (PHP artisan serve)
+# Expor porta 8000
 EXPOSE 8000
 
-# Usar o servidor PHP embutido (como usuário www-data para evitar problemas de permissão)
-CMD php artisan serve --host=0.0.0.0 --port=8000
+# Usar o servidor PHP embutido
+CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
