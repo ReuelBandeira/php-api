@@ -169,6 +169,10 @@ O backend estará disponível em http://localhost:8000
 O projeto inclui configuração para Docker. Para executar usando Docker:
 
 ```bash
+docker-compose build
+```
+
+```bash
 docker-compose up -d
 ```
 
