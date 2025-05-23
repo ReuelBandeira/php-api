@@ -180,6 +180,12 @@ Para executar os testes:
 php artisan test
 ```
 
+## Visualizar iamgem
+
+```bash
+http://localhost:8000/storage/{file_path}
+```
+
 ## Licença
 
 [MIT](https://opensource.org/licenses/MIT)

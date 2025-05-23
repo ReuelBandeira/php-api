@@ -39,6 +39,9 @@ RUN mkdir -p storage/logs storage/framework/cache storage/framework/sessions sto
 # Gerar o autoloader otimizado
 RUN composer dump-autoload --optimize
 
+# 👉 Criar o link do storage manualmente (sem artisan)
+RUN mkdir -p public && ln -sf /var/www/html/storage/app/public /var/www/html/public/storage
+
 # Expor porta 8000
 EXPOSE 8000
 
