@@ -9,6 +9,7 @@ use App\Modules\Conduct\Controllers\ConductController;
 use App\Modules\Trauma\Controllers\TraumaController;
 use App\Modules\Hospital\Controllers\HospitalController;
 use App\Modules\Submit\Controllers\SubmitController;
+use App\Modules\Deficit\Controllers\DeficitController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,3 +42,6 @@ Route::apiResource('hospitals', HospitalController::class);
 Route::apiResource('submits', \App\Modules\Submit\Controllers\SubmitController::class);
 
 Route::delete('submits/{submit}/attachments/{attachment}', [\App\Modules\Submit\Controllers\SubmitController::class, 'deleteAttachment']);
+
+// Deficit Routes
+Route::apiResource('deficits', DeficitController::class);

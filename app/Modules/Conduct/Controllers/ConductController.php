@@ -50,7 +50,7 @@ class ConductController extends Controller
     public function show(string $id)
     {
         $conduct = $this->getConductService->getById((int) $id);
-        return response()->json($conduct);
+        return response()->json(['data' =>$conduct]);
     }
 
     /**
