@@ -10,6 +10,8 @@ use App\Modules\Trauma\Controllers\TraumaController;
 use App\Modules\Hospital\Controllers\HospitalController;
 use App\Modules\Submit\Controllers\SubmitController;
 use App\Modules\Deficit\Controllers\DeficitController;
+use App\Modules\EyeOpening\Controllers\EyeOpeningController;
+use App\Modules\VerbalResponse\Controllers\VerbalResponseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,3 +47,9 @@ Route::delete('submits/{submit}/attachments/{attachment}', [\App\Modules\Submit\
 
 // Deficit Routes
 Route::apiResource('deficits', DeficitController::class);
+
+// EyeOpening Routes
+Route::apiResource('eye-openings', EyeOpeningController::class);
+
+// VerbalResponse Routes
+Route::apiResource('verbal-responses', VerbalResponseController::class);
