@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             \App\Modules\Trauma\Seeders\TraumaSeeder::class,
             \App\Modules\Hospital\Seeders\HospitalSeeder::class,
             \App\Modules\Doctor\Seeders\MotorResponseSeeder::class,
+            \App\Modules\Pupil\Seeders\PupilSeeder::class,
         ]);
     }
 }
