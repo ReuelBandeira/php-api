@@ -14,6 +14,7 @@ use App\Modules\EyeOpening\Controllers\EyeOpeningController;
 use App\Modules\VerbalResponse\Controllers\VerbalResponseController;
 use App\Modules\MotorResponse\Controllers\MotorResponseController;
 use App\Modules\Pupil\Controllers\PupilController;
+use App\Modules\Fracture\Controllers\FractureController;
 
 /*
 |--------------------------------------------------------------------------
@@ -84,3 +85,5 @@ Route::get('/usuarios', function () {
         ]
     ]);
 });
+
+Route::apiResource('fractures', FractureController::class);

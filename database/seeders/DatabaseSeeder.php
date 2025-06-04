@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             \App\Modules\Hospital\Seeders\HospitalSeeder::class,
             \App\Modules\Doctor\Seeders\MotorResponseSeeder::class,
             \App\Modules\Pupil\Seeders\PupilSeeder::class,
+            \App\Modules\Fracture\Seeders\FractureSeeder::class,
         ]);
     }
 }
