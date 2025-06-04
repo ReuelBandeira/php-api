@@ -60,3 +60,27 @@ Route::apiResource('verbal-responses', VerbalResponseController::class);
 Route::apiResource('motor-responses', MotorResponseController::class);
 
 Route::apiResource('pupils', PupilController::class);
+
+Route::get('/status', function () {
+    return response()->json([
+        'status' => 'ok',
+        'message' => 'API operando normalmente'
+    ]);
+});
+
+Route::get('/usuarios', function () {
+    return response()->json([
+        [
+            'id' => 1,
+            'email' => 'admin@teste.com',
+            'senha' => '123456',
+            'nome' => 'Administrador'
+        ],
+        [
+            'id' => 2,
+            'email' => 'usuario@teste.com',
+            'senha' => '654321',
+            'nome' => 'Usuário Comum'
+        ]
+    ]);
+});
