@@ -17,7 +17,12 @@ return new class extends Migration
             $table->foreignId('doctor_id')->constrained('doctors');
             $table->foreignId('patient_id')->constrained('patients');
             $table->foreignId('trauma_id')->constrained('traumas');
-            $table->text('conscience');
+            $table->foreignId('deficit_id')->nullable()->constrained('deficits');
+            $table->foreignId('eye_opening_id')->nullable()->constrained('eye_openings');
+            $table->foreignId('verbal_response_id')->nullable()->constrained('verbal_responses');
+            $table->foreignId('motor_response_id')->nullable()->constrained('motor_responses');
+            $table->foreignId('pupil_id')->nullable()->constrained('pupils');
+            $table->foreignId('fracture_id')->nullable()->constrained('fractures');
             $table->string('status');
             $table->timestamps();
         });

@@ -20,27 +20,38 @@ class SubmitRepository
 
     public function getAll(): Collection
     {
-        // Carrega todos os relacionamentos importantes
         return $this->model->with([
             'attachments',
             'hospital',
             'doctor',
             'patient',
-            'trauma'
+            'trauma',
+            'deficit',
+            'eyeOpening',
+            'verbalResponse',
+            'motorResponse',
+            'pupil',
+            'fracture'
         ])->get();
     }
 
     public function getById(int $id): ?Submit
     {
-        // Carrega todos os relacionamentos importantes
         return $this->model->with([
             'attachments',
             'hospital',
             'doctor',
             'patient',
-            'trauma'
+            'trauma',
+            'deficit',
+            'eyeOpening',
+            'verbalResponse',
+            'motorResponse',
+            'pupil',
+            'fracture'
         ])->find($id);
     }
+
     public function create(SubmitDTO $submitDTO): Submit
     {
         $submit = $this->model->create($submitDTO->toArray());

@@ -21,22 +21,20 @@ class SubmitSeeder extends Seeder
         $doctorId = Doctor::first()->id ?? 1;
         $patientId = Patient::first()->id ?? 1;
         $traumaId = Trauma::first()->id ?? 1;
-        
+
         Submit::create([
             'hospital_id' => $hospitalId,
             'doctor_id' => $doctorId,
             'patient_id' => $patientId,
             'trauma_id' => $traumaId,
-            'conscience' => 'Patient is fully conscious and responsive',
             'status' => 'Initial assessment',
         ]);
-        
+
         Submit::create([
             'hospital_id' => $hospitalId,
             'doctor_id' => $doctorId,
             'patient_id' => $patientId,
             'trauma_id' => $traumaId,
-            'conscience' => 'Patient is semi-conscious with periods of alertness',
             'status' => 'Ongoing treatment',
         ]);
     }

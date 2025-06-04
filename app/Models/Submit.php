@@ -16,7 +16,12 @@ class Submit extends Model
         'doctor_id',
         'patient_id',
         'trauma_id',
-        'conscience',
+        'deficit_id',
+        'eye_opening_id',
+        'verbal_response_id',
+        'motor_response_id',
+        'pupil_id',
+        'fracture_id',
         'status',
     ];
 
@@ -38,6 +43,36 @@ class Submit extends Model
     public function trauma(): BelongsTo
     {
         return $this->belongsTo(Trauma::class);
+    }
+
+    public function deficit(): BelongsTo
+    {
+        return $this->belongsTo(Deficit::class);
+    }
+
+    public function eyeOpening(): BelongsTo
+    {
+        return $this->belongsTo(EyeOpening::class);
+    }
+
+    public function verbalResponse(): BelongsTo
+    {
+        return $this->belongsTo(VerbalResponse::class);
+    }
+
+    public function motorResponse(): BelongsTo
+    {
+        return $this->belongsTo(MotorResponse::class);
+    }
+
+    public function pupil(): BelongsTo
+    {
+        return $this->belongsTo(Pupil::class);
+    }
+
+    public function fracture(): BelongsTo
+    {
+        return $this->belongsTo(Fracture::class);
     }
 
     public function attachments(): HasMany

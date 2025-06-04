@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class MotorResponse extends Model
 {
@@ -17,4 +18,9 @@ class MotorResponse extends Model
     protected $fillable = [
         'name',
     ];
+
+    public function submits(): HasMany
+    {
+        return $this->hasMany(Submit::class);
+    }
 }

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Fracture extends Model
 {
@@ -19,4 +20,9 @@ class Fracture extends Model
         'location',
         'type',
     ];
+
+    public function submits(): HasMany
+    {
+        return $this->hasMany(Submit::class);
+    }
 }
