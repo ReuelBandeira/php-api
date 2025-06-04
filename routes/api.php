@@ -12,6 +12,7 @@ use App\Modules\Submit\Controllers\SubmitController;
 use App\Modules\Deficit\Controllers\DeficitController;
 use App\Modules\EyeOpening\Controllers\EyeOpeningController;
 use App\Modules\VerbalResponse\Controllers\VerbalResponseController;
+use App\Modules\MotorResponse\Controllers\MotorResponseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,3 +54,6 @@ Route::apiResource('eye-openings', EyeOpeningController::class);
 
 // VerbalResponse Routes
 Route::apiResource('verbal-responses', VerbalResponseController::class);
+
+// MotorResponse Routes
+Route::apiResource('motor-responses', MotorResponseController::class);
